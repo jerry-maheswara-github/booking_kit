@@ -1,5 +1,7 @@
 //! # booking_kit
 //!
+//! Extensible booking toolkit for Rust with core types, status logic, events, and validation rules.
+//! 
 //! `booking_kit` is a generic and extensible toolkit designed to handle the core logic for booking systems in Rust.
 //! This crate provides structures, status management, events, validation rules, and error handling that are essential 
 //! for creating a reservation or booking system. It is designed to be modular, flexible, and reusable across different 
@@ -17,37 +19,15 @@
 //!
 //! ## Modules:
 //!
-//! - `entities`: Defines core entities like `Booking`, `BookingItem`, and related data structures.
+//! - `booking`: Defines core entities like `Booking`, and related data structures.
 //! - `status`: Contains the various statuses a booking can have, such as `Pending`, `Confirmed`, and `Canceled`.
 //! - `traits`: Defines traits such as `Reservable` for entities that can be booked.
-//! - `events`: Contains domain events for tracking booking actions (e.g., booking creation and cancellation).
-//! - `rules`: Provides validation logic and custom rules for bookings.
 //! - `error`: Handles error types related to bookings, such as invalid status or unavailable items.
 //!
 //! ## Usage Example:
 //!
-//! ```rust
-//! use booking_kit::model::entities::{Booking, BookingItem};
-//! use booking_kit::model::status::BookingStatus;
-//!
-//! let booking_item = BookingItem {
-//!     item_id: "item_123".to_string(),
-//!     quantity: 2,
-//!     price_per_unit: 50.0,
-//! };
-//!
-//! let booking = Booking {
-//!     id: "booking_123".to_string(),
-//!     user_id: "user_456".to_string(),
-//!     items: vec![booking_item],
-//!     status: BookingStatus::Pending,
-//!     created_at: chrono::Utc::now(),
-//! };
-//!
-//! // Example of using booking status
-//! if booking.status == BookingStatus::Pending {
-//!     println!("The booking is still pending.");
-//! }
+//! ```code
+//! 
 //! ```
 //!
 //! This toolkit is designed to be extensible, allowing developers to build custom booking logic and integrate it into 
@@ -82,4 +62,7 @@
 
 /// Core data model definitions for booking operations.
 pub mod model;
+pub mod manager;
+pub mod traits;
+pub mod error;
 

@@ -49,4 +49,14 @@ impl BookingError {
     pub fn new_rule_validation_failed(message: &str) -> Self {
         BookingError::RuleValidationFailed(message.to_string())
     }
+
+    /// Creates a QuantityExceeded error.
+    pub fn new_quantity_exceeded() -> Self {
+        BookingError::QuantityExceeded
+    }
+
+    /// Creates a GeneralError with a specific message.
+    pub fn new_general_error(message: &str) -> Self {
+        BookingError::GeneralError(message.to_string())
+    }
 }
