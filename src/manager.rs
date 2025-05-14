@@ -1,14 +1,11 @@
 //! Stateless manager providing booking logic APIs.
-//!
-//! `BookingManager` is a pure logic layer with no internal state,
-//! designed to create and manage bookings based on availability and status transitions.
 
 use crate::error::BookingError;
 use crate::model::booking::Booking;
 use crate::model::status::BookingStatus;
 use crate::traits::Bookable;
 
-/// A struct that manages the booking process, including handling reservations,
+/// `BookingManager` is a struct that manages the booking process, including handling reservations,
 /// validating data, and interacting with available resources.
 pub struct BookingManager;
 

@@ -1,21 +1,19 @@
 //! # 🧳 booking_kit
 //!
-//! ✨ Extensible booking toolkit for Rust with core types, status logic, events, and validation rules.
+//! A powerful and extensible booking toolkit for Rust — featuring core data structures, flexible status logic, and seamless integration into any reservation system.
 //!
 //! `booking_kit` is a generic and extensible toolkit designed to handle the core logic for booking systems in Rust.  
-//! This crate provides structures, status management, events, validation rules, and error handling 🛠️ that are essential 
-//! for creating a reservation or booking system. It is designed to be modular, flexible, and reusable across different 
-//! applications.
+//! This crate provides structures, status management, and error handling that are essential 
+//! for creating a reservation or booking system. 
+//! 
+//! A modular and extensible toolkit for building custom booking logic.
 //!
-//!
-//! This toolkit is designed to be extensible, allowing developers to build custom booking logic and integrate it into 
-//! various types of applications — travel, hotels, events, or anything that needs reservation logic.
-//!
-//! It provides the flexibility to manage bookings without relying on specific external services, making it ideal for a variety of use cases.
-//!
+//! Designed to be flexible and reusable across various applications—such as travel, hotels, events, or any system requiring reservations—
+//! without relying on specific external services.
+//! 
 //! ---
 //!
-//! ## 🚀 Features:
+//! ## 🚀 Features
 //!
 //! - 📦 **Core Data Structures** — Defines `Booking`, `BookingItem`, and `BookingStatus` for handling bookings and items.
 //! - 🔄 **Status Management** — Offers predefined booking statuses such as `Pending`, `Confirmed`, `Canceled`, and more.
@@ -24,7 +22,7 @@
 //! - ⚠️ **Error Handling** — Provides a set of errors like `ItemUnavailable`, `QuantityExceeded`, and `InvalidStatus` to handle common booking-related issues.
 //! - 🛠️ **Metadata Support** — Customize your bookings with additional metadata for each item.
 //!
-//! ## 🧰 Core Components:
+//! ## 🧰 Core Components
 //!
 //! - **BookingManager** — Handles your booking lifecycle—create, confirm, cancel, or expire your bookings.
 //! - **Booking** — A flexible struct to hold booking details, like ID, status, and the item you're booking.
@@ -32,7 +30,7 @@
 //! - **Error Types** — Robust error handling for any booking mishaps.
 //! ---
 //! 
-//! ## 💡 Usage Example:
+//! ## 💡 Quick Start
 //!
 //! ```rust
 //! use serde::{Deserialize, Serialize};
@@ -79,7 +77,7 @@
 //!
 //! ## 📄 License
 //!
-//! Licensed under the [Apache-2.0 license](http://www.apache.org/licenses/LICENSE-2.0.txt) 📝
+//! Licensed under the [Apache-2.0 license](http://www.apache.org/licenses/LICENSE-2.0.txt)
 //!
 //! ---
 //!
@@ -103,7 +101,7 @@
 //!
 //! ---
 
-///! Core data model definitions for booking operations.
+/// Core data model definitions for booking operations.
 pub mod model;
 pub mod manager;
 pub mod traits;
