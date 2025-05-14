@@ -45,4 +45,36 @@ pub enum BookingStatus {
     
     /// The booking was failed.
     Failed,
+
+    /// The booking has been fulfilled or used successfully.
+    Completed,
+}
+
+impl BookingStatus {
+    /// Validates if a transition from `self` to `next` is allowed.
+    pub fn can_transition_to(&self, next: &BookingStatus) -> bool {
+        use BookingStatus::*;
+
+        match (self, next) {
+            // Pending → Confirmed, Canceled, Expired, or Failed
+            (Pending, Confirmed)
+            | (Pending, Canceled)
+            | (Pending, Expired)
+            | (Pending, Failed) => true,
+
+            // Confirmed → Completed, Canceled
+            (Confirmed, Completed) | (Confirmed, Canceled) => true,
+
+            // Completed = final state
+            (Completed, _) => false,
+
+            // Canceled, Expired, Failed = final states
+            (Canceled, _) => false,
+            (Expired, _) => false,
+            (Failed, _) => false,
+
+            // Prevent no-op transition unless explicitly allowed
+            (current, next) => current == next,
+        }
+    }
 }

@@ -1,7 +1,9 @@
 //! Module for handling errors related to the booking system.
 
 use thiserror::Error;
+use crate::model::status::BookingStatus;
 
+/// Enum used to represent errors that occur during the booking process.
 #[derive(Debug, Error)]
 pub enum BookingError {
     /// Error when the item with ID {0} is unavailable.
@@ -11,6 +13,13 @@ pub enum BookingError {
     /// Error when the booking status is invalid, e.g., an unregistered status.
     #[error("Booking status is invalid: {0}")]
     InvalidStatus(String),
+
+    /// Error when a transition between statuses is not allowed.
+    #[error("Invalid status transition from {from:?} to {to:?}")]
+    InvalidStatusTransition {
+        from: BookingStatus,
+        to: BookingStatus,
+    },
 
     /// Error when booking creation fails, e.g., due to an internal error.
     #[error("Failed to create booking: {0}")]
@@ -38,6 +47,27 @@ impl BookingError {
     /// Creates an ItemUnavailable error with the item ID that is unavailable.
     pub fn new_item_unavailable(item_id: &str) -> Self {
         BookingError::ItemUnavailable(item_id.to_string())
+    }
+
+    /// Creates an InvalidStatusTransition error with the provided from and to status.
+    ///
+    /// This error is returned when an attempt is made to transition between two booking statuses
+    /// in an invalid or unsupported way. It helps to catch scenarios where a booking cannot be 
+    /// moved from one status to another due to business logic constraints.
+    ///
+    /// # Parameters
+    /// - `from`: The current status of the booking.
+    /// - `to`: The status the booking is trying to transition to.
+    ///
+    /// # Example
+    /// ```rust
+    /// use booking_kit::error::BookingError;
+    /// use booking_kit::model::status::BookingStatus;
+    /// let error = BookingError::new_invalid_transition(BookingStatus::Pending, BookingStatus::Expired);
+    /// assert_eq!(error.to_string(), "Invalid status transition from Pending to Expired");
+    /// ```
+    pub fn new_invalid_transition(from: BookingStatus, to: BookingStatus) -> Self {
+        BookingError::InvalidStatusTransition { from, to }
     }
 
     /// Creates a CreationFailed error with a specific failure message.
