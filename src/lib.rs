@@ -17,11 +17,11 @@
 //!
 //! - 📦 **Core Data Structures** — Defines `Booking`, `BookingItem`, and `BookingStatus` for handling bookings and items.
 //! - 🔄 **Status Management** — Offers predefined booking statuses such as `Pending`, `Confirmed`, `Canceled`, and more.
-//! - 📡 **Domain Events** — Includes events like `BookingCreated` and `BookingCanceled` for tracking state transitions.
-//! - ✅ **Rule Validation** — Allows custom validation rules for bookings, such as ensuring item availability or valid status transitions.
 //! - ⚠️ **Error Handling** — Provides a set of errors like `ItemUnavailable`, `QuantityExceeded`, and `InvalidStatus` to handle common booking-related issues.
 //! - 🛠️ **Metadata Support** — Customize your bookings with additional metadata for each item.
 //!
+//! ---
+//! 
 //! ## 🧰 Core Components
 //!
 //! - **BookingManager** — Handles your booking lifecycle—create, confirm, cancel, or expire your bookings.

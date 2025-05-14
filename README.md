@@ -20,6 +20,8 @@ without relying on specific external services.
 - ⚠️ **Error Handling** — Provides a set of errors like `ItemUnavailable`, `QuantityExceeded`, and `InvalidStatus` to handle common booking-related issues.
 - 🛠️ **Metadata Support** — Customize your bookings with additional metadata for each item.
 
+---
+
 ## 🧰 Core Components
 
 - **BookingManager** — Handles your booking lifecycle—create, confirm, cancel, or expire your bookings.

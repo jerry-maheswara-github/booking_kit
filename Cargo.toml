@@ -1,6 +1,6 @@
 [package]
 name = "booking_kit"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 authors = ["Jerry Maheswara <jerrymaheswara@gmail.com>"]
 description = "A powerful and extensible booking toolkit for Rust — featuring core data structures, flexible status logic, and seamless integration into any reservation system."
